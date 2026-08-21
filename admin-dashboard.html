@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AttendEase | Admin Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+<style>
+:root{--primary:#2563EB;--secondary:#22C55E;--dark:#0B1120;--card:#111827;--light:#1E293B;--text:#F8FAFC;--muted:#94A3B8;--border:rgba(255,255,255,.08);--danger:#EF4444;--warning:#F59E0B}
+*{box-sizing:border-box;font-family:Poppins,sans-serif}body{margin:0;background:var(--dark);color:var(--text);overflow-x:hidden}.topbar{position:sticky;top:0;z-index:1000;height:70px;background:rgba(11,17,32,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px 0 290px}.brand{font-size:22px;font-weight:700;color:var(--primary);display:flex;gap:10px;align-items:center}.brand i{color:var(--secondary)}.top-actions{display:flex;gap:16px;align-items:center}.icon-btn,.menu-btn{border:0;background:transparent;color:var(--text-light,#CBD5E1);font-size:18px;cursor:pointer}.profile{width:38px;height:38px;border-radius:50%;background:rgba(37,99,235,.18);border:1px solid rgba(37,99,235,.45);display:grid;place-items:center;font-weight:700;color:#6FA8FF}.sidebar{position:fixed;left:0;top:0;width:270px;height:100vh;background:#0B1120;border-right:1px solid var(--border);z-index:1200;padding:25px 15px}.sidebar-brand{font-size:24px;font-weight:700;color:var(--primary);padding:0 10px 28px;display:flex;gap:10px}.sidebar-brand i{color:var(--secondary)}.menu-label{font-size:10px;color:#64748B;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;padding:0 12px 9px;margin-top:12px}.side-link{width:100%;border:1px solid transparent;background:transparent;color:#CBD5E1;display:flex;gap:13px;align-items:center;padding:11px 12px;margin-bottom:5px;border-radius:9px;cursor:pointer;text-align:left}.side-link i{width:20px;text-align:center;color:#94A3B8}.side-link:hover,.side-link.active{background:rgba(37,99,235,.13);border-color:rgba(37,99,235,.18);color:white}.side-link.active i,.side-link:hover i{color:var(--primary)}.main{margin-left:270px;padding:32px 35px 50px;max-width:1450px}.page{display:none}.page.active{display:block}.eyebrow{color:var(--primary);font-size:12px;font-weight:600}.heading{margin-bottom:22px}.heading h1{margin:3px 0;font-size:28px}.heading p{color:var(--muted);font-size:13px;margin:0}.welcome{padding:22px;border:1px solid rgba(37,99,235,.24);border-radius:18px;background:linear-gradient(135deg,rgba(37,99,235,.17),rgba(34,197,94,.06));margin-bottom:18px}.welcome h2{margin:0 0 4px;font-size:20px}.welcome p{margin:0;color:var(--muted);font-size:12px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:18px}.stat,.panel{background:var(--card);border:1px solid var(--border);border-radius:17px;box-shadow:0 10px 30px rgba(0,0,0,.16)}.stat{padding:18px}.stat-icon{width:40px;height:40px;border-radius:10px;background:rgba(37,99,235,.12);display:grid;place-items:center;color:#6FA8FF;margin-bottom:10px}.stat.green .stat-icon{background:rgba(34,197,94,.12);color:#4ADE80}.stat.orange .stat-icon{background:rgba(245,158,11,.12);color:#FBBF24}.stat.purple .stat-icon{background:rgba(124,58,237,.12);color:#A78BFA}.stat-label{font-size:11px;color:var(--muted)}.stat-value{font-size:27px;font-weight:700}.stat small{color:#64748B}.grid2{display:grid;grid-template-columns:1.4fr .8fr;gap:18px}.panel{padding:18px;margin-bottom:18px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.panel-head h2{font-size:16px;margin:0}.panel-head p{font-size:10px;color:var(--muted);margin:3px 0 0}.btn{border:0;border-radius:8px;padding:9px 13px;color:white;background:var(--primary);cursor:pointer;font-weight:600;font-size:11px}.btn.secondary{background:var(--light)}.btn.green{background:#16A34A}.btn.danger{background:#B91C1C}.btn.warning{background:#D97706}.btn:hover{filter:brightness(1.12)}.quick{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quick button{background:var(--light);color:white;border:1px solid var(--border);border-radius:11px;padding:14px;text-align:left;cursor:pointer}.quick i{color:var(--primary);margin-bottom:7px}.quick strong,.quick span{display:block}.quick strong{font-size:11px}.quick span{font-size:9px;color:var(--muted);margin-top:2px}.ring-row{display:flex;align-items:center;gap:20px}.ring{width:105px;height:105px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--secondary) 0deg,#1E293B 0deg);flex:none}.ring-inner{width:80px;height:80px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-weight:700}.activity{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid var(--border)}.activity:last-child{border:0}.activity i{width:34px;height:34px;border-radius:9px;background:rgba(37,99,235,.12);display:grid;place-items:center;color:#6FA8FF}.activity strong{display:block;font-size:11px}.activity span{font-size:9px;color:var(--muted)}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}.search,.select,.input{background:var(--light);border:1px solid var(--border);border-radius:8px;color:white;padding:9px 11px;outline:none;font-size:11px}.search{min-width:230px;flex:1}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:720px}.table th{font-size:9px;text-transform:uppercase;color:#64748B;text-align:left;padding:10px;border-bottom:1px solid var(--border)}.table td{font-size:11px;color:#CBD5E1;padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.05)}.table tr:last-child td{border:0}.badge{padding:4px 8px;border-radius:20px;font-size:9px;font-weight:600;background:rgba(37,99,235,.12);color:#6FA8FF}.badge.green{background:rgba(34,197,94,.12);color:#4ADE80}.badge.red{background:rgba(239,68,68,.12);color:#F87171}.badge.orange{background:rgba(245,158,11,.12);color:#FBBF24}.actions{display:flex;gap:5px}.actions button{border:0;border-radius:6px;padding:6px 8px;background:var(--light);color:#CBD5E1;cursor:pointer}.empty{text-align:center;color:var(--muted);padding:30px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.field.full{grid-column:1/-1}.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:3000;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modal-card{width:min(720px,100%);max-height:90vh;overflow:auto;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal-head h2{margin:0;font-size:18px}.close{background:var(--light);border:0;color:white;width:34px;height:34px;border-radius:8px;cursor:pointer}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.report-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.report-card{background:var(--light);border:1px solid var(--border);border-radius:13px;padding:18px}.report-card i{color:var(--primary);font-size:20px}.report-card h3{font-size:13px;margin:9px 0 4px}.report-card p{font-size:10px;color:var(--muted)}.settings-row{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid var(--border)}.settings-row:last-child{border:0}.settings-row strong{font-size:12px}.settings-row span{display:block;color:var(--muted);font-size:10px}.bottom{display:none}.toast{position:fixed;right:20px;bottom:20px;z-index:5000;background:#1E293B;border:1px solid var(--border);padding:12px 16px;border-radius:9px;font-size:11px;display:none}.toast.show{display:block}.toast.success{border-color:rgba(34,197,94,.4)}.toast.error{border-color:rgba(239,68,68,.4)}
+@media(max-width:900px){.sidebar{left:-270px}.sidebar.open{left:0}.topbar{padding:0 18px}.menu-btn{display:block}.main{margin-left:0;padding:25px 16px 85px}.stats{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.bottom{position:fixed;bottom:0;left:0;right:0;height:65px;background:rgba(11,17,32,.97);border-top:1px solid var(--border);z-index:1000;display:grid;grid-template-columns:repeat(5,1fr)}.bottom button{border:0;background:transparent;color:#64748B;font-size:9px;display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center}.bottom button.active{color:var(--primary)}.bottom i{font-size:16px}.form-grid{grid-template-columns:1fr}.report-cards{grid-template-columns:1fr}.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1100}.overlay.show{display:block}}
+@media(min-width:901px){.menu-btn{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:12px"><button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button><div class="brand"><i class="fa-solid fa-user-check"></i> AttendEase</div></div>
+  <div class="top-actions"><button class="icon-btn" id="notificationBtn"><i class="fa-regular fa-bell"></i></button><div class="profile" id="profileInitial">A</div></div>
+</header>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand"><i class="fa-solid fa-user-check"></i> AttendEase</div>
+  <div class="menu-label">Main Menu</div>
+  <button class="side-link active" data-page="dashboard"><i class="fa-solid fa-house"></i>Dashboard</button>
+  <button class="side-link" data-page="students"><i class="fa-solid fa-user-graduate"></i>Students</button>
+  <button class="side-link" data-page="faculty"><i class="fa-solid fa-user-tie"></i>Faculty</button>
+  <button class="side-link" data-page="academics"><i class="fa-solid fa-book-open"></i>Academics</button>
+  <button class="side-link" data-page="attendance"><i class="fa-solid fa-calendar-check"></i>Attendance</button>
+  <button class="side-link" data-page="reports"><i class="fa-solid fa-chart-line"></i>Reports</button>
+  <div class="menu-label">System</div>
+  <button class="side-link" data-page="settings"><i class="fa-solid fa-gear"></i>Settings</button>
+  <button class="side-link" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+</aside>
+<div class="overlay" id="overlay"></div>
+
+<main class="main">
+  <section class="page active" id="admin-dashboard">
+  <div class="heading"><div class="eyebrow">ADMIN PANEL</div><h1>Dashboard</h1><p id="institutionName"></p></div>
+  <div class="welcome"><h2 id="welcomeText"></h2><p>Manage students, faculty, academics and attendance from one place.</p></div>
+  <div class="stats">
+    <div class="stat"><div class="stat-icon"><i class="fa-solid fa-user-graduate"></i></div><div class="stat-label">Total Students</div><div class="stat-value" id="studentCount">0</div><small>Registered students</small></div>
+    <div class="stat green"><div class="stat-icon"><i class="fa-solid fa-user-tie"></i></div><div class="stat-label">Total Faculty</div><div class="stat-value" id="facultyCount">0</div><small>Faculty accounts</small></div>
+    <div class="stat purple"><div class="stat-icon"><i class="fa-solid fa-book-open"></i></div><div class="stat-label">Classes</div><div class="stat-value" id="classCount">0</div><small>Active classes</small></div>
+    <div class="stat orange"><div class="stat-icon"><i class="fa-solid fa-chart-pie"></i></div><div class="stat-label">Attendance</div><div class="stat-value" id="attendanceValue">0%</div><small>Overall attendance</small></div>
+  </div>
+  <div class="grid2">
+    <div class="panel"><div class="panel-head"><div><h2>Attendance Overview</h2><p>Overall attendance from recorded sessions</p></div><button class="btn secondary" data-page="attendance">View</button></div><div class="ring-row"><div class="ring" id="dashboardRing"><div class="ring-inner" id="dashboardRingText">0%</div></div><div><h3 id="attendanceSummary">No attendance records</h3><p style="font-size:11px;color:var(--muted);line-height:1.7">Faculty can mark attendance. Students can later view their own records.</p></div></div></div>
+    <div class="panel"><div class="panel-head"><div><h2>Quick Actions</h2><p>Common admin tasks</p></div></div><div class="quick"><button data-action="add-student"><i class="fa-solid fa-user-plus"></i><strong>Add Student</strong><span>Manage students</span></button><button data-action="add-faculty"><i class="fa-solid fa-user-plus"></i><strong>Add Faculty</strong><span>Manage faculty</span></button><button data-action="add-class"><i class="fa-solid fa-book-medical"></i><strong>Create Class</strong><span>Manage academics</span></button><button data-page="reports"><i class="fa-solid fa-file-arrow-down"></i><strong>Reports</strong><span>Download data</span></button></div></div>
+  </div>
+  <div class="panel"><div class="panel-head"><div><h2>Recent Activity</h2><p>Latest system activity</p></div></div><div id="activityList"></div></div>
+</section>
+
+<section class="page" id="page-students">
+  <div class="heading"><div class="eyebrow">USER MANAGEMENT</div><h1>Students</h1><p>View, search and manage student accounts.</p></div>
+  <div class="panel"><div class="toolbar"><input class="search" id="studentSearch" placeholder="Search by name, username or class..."><select class="select" id="studentClassFilter"><option value="">All classes</option></select><button class="btn" data-action="add-student"><i class="fa-solid fa-plus"></i> Add Student</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Student</th><th>Class</th><th>Username</th><th>Attendance</th><th>Status</th><th>Actions</th></tr></thead><tbody id="studentsBody"></tbody></table></div></div>
+</section>
+
+<section class="page" id="page-faculty">
+  <div class="heading"><div class="eyebrow">USER MANAGEMENT</div><h1>Faculty</h1><p>View and manage faculty accounts and assignments.</p></div>
+  <div class="panel"><div class="toolbar"><input class="search" id="facultySearch" placeholder="Search faculty..."><button class="btn" data-action="add-faculty"><i class="fa-solid fa-plus"></i> Add Faculty</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Faculty</th><th>Username</th><th>Subjects</th><th>Classes</th><th>Status</th><th>Actions</th></tr></thead><tbody id="facultyBody"></tbody></table></div></div>
+</section>
+
+<section class="page" id="page-academics">
+  <div class="heading"><div class="eyebrow">ACADEMICS</div><h1>Classes & Subjects</h1><p>Manage classes, sections, subjects and faculty assignments.</p></div>
+  <div class="panel"><div class="toolbar"><button class="btn" data-action="add-class"><i class="fa-solid fa-plus"></i> Add Class</button><button class="btn secondary" data-action="add-subject"><i class="fa-solid fa-book"></i> Add Subject</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Class</th><th>Section</th><th>Students</th><th>Subjects</th><th>Class Teacher</th><th>Actions</th></tr></thead><tbody id="classesBody"></tbody></table></div></div>
+  <div class="panel"><div class="panel-head"><div><h2>Subjects</h2><p>All subjects currently configured</p></div></div><div class="table-wrap"><table class="table"><thead><tr><th>Subject</th><th>Code</th><th>Class</th><th>Faculty</th><th>Actions</th></tr></thead><tbody id="subjectsBody"></tbody></table></div></div>
+</section>
+
+<section class="page" id="page-attendance">
+  <div class="heading"><div class="eyebrow">ATTENDANCE MONITORING</div><h1>Attendance</h1><p>Monitor attendance recorded by faculty.</p></div>
+  <div class="stats" style="grid-template-columns:repeat(3,1fr)"><div class="stat"><div class="stat-label">Present</div><div class="stat-value" id="presentCount">0</div></div><div class="stat green"><div class="stat-label">Absent</div><div class="stat-value" id="absentCount">0</div></div><div class="stat orange"><div class="stat-label">Sessions</div><div class="stat-value" id="sessionCount">0</div></div></div>
+  <div class="panel"><div class="toolbar"><input class="search" id="attendanceSearch" placeholder="Search student..."><select class="select" id="attendanceClassFilter"><option value="">All classes</option></select><select class="select" id="attendanceStatusFilter"><option value="">All status</option><option value="Present">Present</option><option value="Absent">Absent</option></select></div><div class="table-wrap"><table class="table"><thead><tr><th>Date</th><th>Student</th><th>Class</th><th>Subject</th><th>Faculty</th><th>Status</th></tr></thead><tbody id="attendanceBody"></tbody></table></div></div>
+</section>
+
+<section class="page" id="page-reports">
+  <div class="heading"><div class="eyebrow">REPORTS</div><h1>Reports</h1><p>Generate and download temporary dataset reports.</p></div>
+  <div class="report-cards">
+    <div class="report-card"><i class="fa-solid fa-users"></i><h3>Student Report</h3><p>Download all students with class and attendance.</p><button class="btn" data-report="students">Download CSV</button></div>
+    <div class="report-card"><i class="fa-solid fa-user-tie"></i><h3>Faculty Report</h3><p>Download faculty accounts and assignments.</p><button class="btn" data-report="faculty">Download CSV</button></div>
+    <div class="report-card"><i class="fa-solid fa-calendar-check"></i><h3>Attendance Report</h3><p>Download every attendance record.</p><button class="btn" data-report="attendance">Download CSV</button></div>
+  </div>
+</section>
+
+<section class="page" id="page-settings">
+  <div class="heading"><div class="eyebrow">SYSTEM</div><h1>Settings</h1><p>Basic institution and dashboard controls.</p></div>
+  <div class="panel">
+    <div class="settings-row"><div><strong>Institution</strong><span id="settingsInstitution"></span></div><span class="badge green">Active</span></div>
+    <div class="settings-row"><div><strong>Logged in as</strong><span id="settingsUser"></span></div><span class="badge">Administrator</span></div>
+    <div class="settings-row"><div><strong>Data storage</strong><span>Temporary browser dataset using localStorage.</span></div><button class="btn danger" id="resetDataBtn">Reset Changes</button></div>
+    <div class="settings-row"><div><strong>Session</strong><span>Admin access is required for this dashboard.</span></div><button class="btn secondary" id="settingsLogout">Logout</button></div>
+  </div>
+</section>
+</main>
+
+<nav class="bottom">
+<button class="active" data-page="dashboard"><i class="fa-solid fa-house"></i>Home</button>
+<button data-page="students"><i class="fa-solid fa-users"></i>Students</button>
+<button data-page="academics"><i class="fa-solid fa-book-open"></i>Academics</button>
+<button data-page="attendance"><i class="fa-solid fa-calendar-check"></i>Attendance</button>
+<button data-page="settings"><i class="fa-solid fa-gear"></i>Settings</button>
+</nav>
+
+<div class="modal" id="modal"><div class="modal-card"><div class="modal-head"><h2 id="modalTitle"></h2><button class="close" id="modalClose"><i class="fa-solid fa-xmark"></i></button></div><div id="modalBody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+<script>
+(() => {
+  const session = getUser();
+  if (!session || session.role !== "admin") { window.location.href = "index.html"; return; }
+
+  const $ = id => document.getElementById(id);
+  const modal = $("modal"), modalTitle = $("modalTitle"), modalBody = $("modalBody"), toast = $("toast");
+
+  function notify(msg, type="success") {
+    toast.textContent = msg; toast.className = "toast show " + type;
+    clearTimeout(window.__toast); window.__toast = setTimeout(() => toast.className="toast", 2400);
+  }
+  function saveData() { localStorage.setItem("attendEaseData", JSON.stringify({users,classes,subjects,attendanceRecords,activityLog})); }
+  function esc(v) { return String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c])); }
+  function classOf(student) { return classes.find(c => c.id === student.classId); }
+  function studentAttendance(id) {
+    const r = attendanceRecords.filter(x => x.studentId === id);
+    return r.length ? Math.round(r.filter(x=>x.status==="Present").length/r.length*100) : 0;
+  }
+  function initials(name){return name.split(" ").map(x=>x[0]).join("").slice(0,2).toUpperCase()}
+
+  function renderAll() {
+    const students=users.filter(u=>u.role==="student"), faculty=users.filter(u=>u.role==="faculty");
+    $("studentCount").textContent=students.length; $("facultyCount").textContent=faculty.length; $("classCount").textContent=classes.length;
+    const total=attendanceRecords.length, present=attendanceRecords.filter(x=>x.status==="Present").length;
+    const pct=total?Math.round(present/total*100):0;
+    $("attendanceValue").textContent=pct+"%"; $("dashboardRingText").textContent=pct+"%";
+    $("dashboardRing").style.background=`conic-gradient(var(--secondary) ${pct*3.6}deg,#1E293B 0deg)`;
+    $("attendanceSummary").textContent=total?`${present} present of ${total} records`:"No attendance records";
+    $("presentCount").textContent=present; $("absentCount").textContent=total-present;
+    $("sessionCount").textContent=new Set(attendanceRecords.map(x=>x.date+"_"+x.subjectId)).size;
+    $("institutionName").textContent=`${institution.name} · ${institution.code}`;
+    $("welcomeText").textContent=`Good day, ${session.name} 👋`;
+    $("profileInitial").textContent=session.name.charAt(0).toUpperCase();
+    $("settingsInstitution").textContent=`${institution.name} (${institution.code})`;
+    $("settingsUser").textContent=`${session.name} · ${session.username}`;
+    renderStudents(); renderFaculty(); renderClasses(); renderSubjects(); renderAttendance(); renderActivity();
+    populateClassFilters();
+  }
+
+  function renderStudents(){
+    const q=($("studentSearch")?.value||"").toLowerCase(), filter=$("studentClassFilter")?.value||"";
+    const list=users.filter(u=>u.role==="student").filter(s=>!filter||s.classId===filter).filter(s=>`${s.name} ${s.username} ${classOf(s)?.name||""}`.toLowerCase().includes(q));
+    $("studentsBody").innerHTML=list.map(s=>{const c=classOf(s);const a=studentAttendance(s.username);return `<tr><td><strong>${esc(s.name)}</strong><br><small>${esc(s.username)}</small></td><td>${esc(c?.name||"Unassigned")} ${c?.section?`- ${esc(c.section)}`:""}</td><td>${esc(s.username)}</td><td><span class="badge ${a>=75?"green":a>=60?"orange":"red"}">${a}%</span></td><td><span class="badge green">Active</span></td><td><div class="actions"><button onclick="editUser('${s.username}')"><i class="fa-solid fa-pen"></i></button><button onclick="deleteUser('${s.username}')"><i class="fa-solid fa-trash"></i></button></div></td></tr>`}).join("")||`<tr><td colspan="6" class="empty">No students found.</td></tr>`;
+  }
+  function renderFaculty(){
+    const q=($("facultySearch")?.value||"").toLowerCase();
+    const list=users.filter(u=>u.role==="faculty").filter(f=>`${f.name} ${f.username}`.toLowerCase().includes(q));
+    $("facultyBody").innerHTML=list.map(f=>{const ss=subjects.filter(s=>s.facultyId===f.username),cs=[...new Set(ss.map(s=>classes.find(c=>c.id===s.classId)?.name).filter(Boolean))];return `<tr><td><strong>${esc(f.name)}</strong><br><small>${esc(f.username)}</small></td><td>${esc(f.username)}</td><td>${ss.map(s=>esc(s.name)).join(", ")||"—"}</td><td>${cs.join(", ")||"—"}</td><td><span class="badge green">Active</span></td><td><div class="actions"><button onclick="editUser('${f.username}')"><i class="fa-solid fa-pen"></i></button><button onclick="deleteUser('${f.username}')"><i class="fa-solid fa-trash"></i></button></div></td></tr>`}).join("")||`<tr><td colspan="6" class="empty">No faculty found.</td></tr>`;
+  }
+  function renderClasses(){
+    $("classesBody").innerHTML=classes.map(c=>{const n=users.filter(u=>u.role==="student"&&u.classId===c.id).length;const ss=subjects.filter(s=>s.classId===c.id);return `<tr><td><strong>${esc(c.name)}</strong></td><td>${esc(c.section)}</td><td>${n}</td><td>${ss.length}</td><td>${esc(users.find(u=>u.username===c.teacherId)?.name||"Not assigned")}</td><td><div class="actions"><button onclick="editClass('${c.id}')"><i class="fa-solid fa-pen"></i></button><button onclick="deleteClass('${c.id}')"><i class="fa-solid fa-trash"></i></button></div></td></tr>`}).join("")||`<tr><td colspan="6" class="empty">No classes created.</td></tr>`;
+  }
+  function renderSubjects(){
+    $("subjectsBody").innerHTML=subjects.map(s=>`<tr><td>${esc(s.name)}</td><td>${esc(s.code)}</td><td>${esc(classes.find(c=>c.id===s.classId)?.name||"—")}</td><td>${esc(users.find(u=>u.username===s.facultyId)?.name||"—")}</td><td><div class="actions"><button onclick="editSubject('${s.id}')"><i class="fa-solid fa-pen"></i></button><button onclick="deleteSubject('${s.id}')"><i class="fa-solid fa-trash"></i></button></div></td></tr>`).join("")||`<tr><td colspan="5" class="empty">No subjects created.</td></tr>`;
+  }
+  function renderAttendance(){
+    const q=($("attendanceSearch")?.value||"").toLowerCase(), cf=$("attendanceClassFilter")?.value||"", sf=$("attendanceStatusFilter")?.value||"";
+    const list=attendanceRecords.filter(r=>{const s=users.find(u=>u.username===r.studentId);return (!cf||s?.classId===cf)&&(!sf||r.status===sf)&&(`${s?.name||""} ${r.date} ${r.subjectId}`.toLowerCase().includes(q))}).sort((a,b)=>b.date.localeCompare(a.date));
+    $("attendanceBody").innerHTML=list.map(r=>{const s=users.find(u=>u.username===r.studentId),sub=subjects.find(x=>x.id===r.subjectId),f=users.find(u=>u.username===r.facultyId);return `<tr><td>${esc(r.date)}</td><td>${esc(s?.name||r.studentId)}</td><td>${esc(classOf(s)?.name||"—")}</td><td>${esc(sub?.name||r.subjectId)}</td><td>${esc(f?.name||"—")}</td><td><span class="badge ${r.status==="Present"?"green":"red"}">${esc(r.status)}</span></td></tr>`}).join("")||`<tr><td colspan="6" class="empty">No attendance records found.</td></tr>`;
+  }
+  function renderActivity(){
+    $("activityList").innerHTML=activityLog.slice(0,8).map(a=>`<div class="activity"><i class="fa-solid ${a.icon||"fa-circle-info"}"></i><div><strong>${esc(a.text)}</strong><span>${esc(a.time)}</span></div></div>`).join("")||`<div class="empty">No activity yet.</div>`;
+  }
+  function populateClassFilters(){
+    ["studentClassFilter","attendanceClassFilter"].forEach(id=>{const el=$(id);if(!el)return;const old=el.value;el.innerHTML='<option value="">All classes</option>'+classes.map(c=>`<option value="${c.id}">${esc(c.name)} - ${esc(c.section)}</option>`).join("");el.value=old;});
+  }
+
+  function openModal(title,body){modalTitle.textContent=title;modalBody.innerHTML=body;modal.classList.add("show")}
+  function closeModal(){modal.classList.remove("show")}
+  $("modalClose").onclick=closeModal; modal.onclick=e=>{if(e.target===modal)closeModal()};
+
+  window.editUser=function(username){
+    const u=users.find(x=>x.username===username); if(!u)return;
+    openModal(`Edit ${u.role}`,`<form id="userForm"><div class="form-grid"><div class="field"><label>Name</label><input class="input" id="fName" value="${esc(u.name)}" required></div><div class="field"><label>Username</label><input class="input" value="${esc(u.username)}" disabled></div><div class="field"><label>Password</label><input class="input" id="fPass" value="${esc(u.password)}" required></div>${u.role==="student"?`<div class="field"><label>Class</label><select class="select" id="fClass">${classes.map(c=>`<option value="${c.id}" ${u.classId===c.id?"selected":""}>${esc(c.name)} - ${esc(c.section)}</option>`).join("")}</select></div>`:""}</div><div class="modal-actions"><button type="button" class="btn secondary" onclick="closeAdminModal()">Cancel</button><button class="btn">Save Changes</button></div></form>`);
+    $("userForm").onsubmit=e=>{e.preventDefault();u.name=$("fName").value.trim();u.password=$("fPass").value;if(u.role==="student")u.classId=$("fClass").value;activityLog.unshift({text:`Updated ${u.role} ${u.name}`,time:"Just now",icon:"fa-user-pen"});saveData();renderAll();closeModal();notify("User updated.");};
+  };
+  window.deleteUser=function(username){const u=users.find(x=>x.username===username);if(!u)return;if(!confirm(`Delete ${u.name}?`))return;const i=users.indexOf(u);users.splice(i,1);for(let i=attendanceRecords.length-1;i>=0;i--)if(attendanceRecords[i].studentId===username||attendanceRecords[i].facultyId===username)attendanceRecords.splice(i,1);for(let i=subjects.length-1;i>=0;i--)if(subjects[i].facultyId===username)subjects.splice(i,1);activityLog.unshift({text:`Deleted ${u.role} ${u.name}`,time:"Just now",icon:"fa-trash"});saveData();renderAll();notify("User deleted.");};
+  window.closeAdminModal=closeModal;
+
+  function userForm(role){
+    openModal(`Add ${role}`,`<form id="addUserForm"><div class="form-grid"><div class="field"><label>Full Name</label><input class="input" id="newName" required></div><div class="field"><label>Username</label><input class="input" id="newUsername" required></div><div class="field"><label>Password</label><input class="input" id="newPassword" required></div>${role==="student"?`<div class="field"><label>Class</label><select class="select" id="newClass">${classes.map(c=>`<option value="${c.id}">${esc(c.name)} - ${esc(c.section)}</option>`).join("")}</select></div>`:""}</div><div class="modal-actions"><button type="button" class="btn secondary" onclick="closeAdminModal()">Cancel</button><button class="btn">Create</button></div></form>`);
+    $("addUserForm").onsubmit=e=>{e.preventDefault();const username=$("newUsername").value.trim();if(users.some(u=>u.username===username)){notify("Username already exists.","error");return}users.push({username,password:$("newPassword").value,name:$("newName").value.trim(),role,institutionCode:institution.code,...(role==="student"?{classId:$("newClass").value}:{})});activityLog.unshift({text:`Added ${role} ${$("newName").value.trim()}`,time:"Just now",icon:"fa-user-plus"});saveData();renderAll();closeModal();notify(`${role} added successfully.`)};
+  }
+  function classForm(){
+    openModal("Create Class",`<form id="classForm"><div class="form-grid"><div class="field"><label>Class Name</label><input class="input" id="cName" placeholder="e.g. CSE AI/ML 3" required></div><div class="field"><label>Section</label><input class="input" id="cSection" placeholder="A" required></div><div class="field full"><label>Class Teacher</label><select class="select" id="cTeacher"><option value="">Not assigned</option>${users.filter(u=>u.role==="faculty").map(f=>`<option value="${f.username}">${esc(f.name)}</option>`).join("")}</select></div></div><div class="modal-actions"><button type="button" class="btn secondary" onclick="closeAdminModal()">Cancel</button><button class="btn">Create</button></div></form>`);
+    $("classForm").onsubmit=e=>{e.preventDefault();const id="class"+Date.now();classes.push({id,name:$("cName").value.trim(),section:$("cSection").value.trim(),teacherId:$("cTeacher").value});activityLog.unshift({text:`Created class ${$("cName").value.trim()}`,time:"Just now",icon:"fa-book-open"});saveData();renderAll();closeModal();notify("Class created.")};
+  }
+  function subjectForm(){
+    openModal("Add Subject",`<form id="subjectForm"><div class="form-grid"><div class="field"><label>Subject Name</label><input class="input" id="sName" required></div><div class="field"><label>Subject Code</label><input class="input" id="sCode" required></div><div class="field"><label>Class</label><select class="select" id="sClass">${classes.map(c=>`<option value="${c.id}">${esc(c.name)} - ${esc(c.section)}</option>`).join("")}</select></div><div class="field"><label>Faculty</label><select class="select" id="sFaculty">${users.filter(u=>u.role==="faculty").map(f=>`<option value="${f.username}">${esc(f.name)}</option>`).join("")}</select></div></div><div class="modal-actions"><button type="button" class="btn secondary" onclick="closeAdminModal()">Cancel</button><button class="btn">Create</button></div></form>`);
+    $("subjectForm").onsubmit=e=>{e.preventDefault();subjects.push({id:"sub"+Date.now(),name:$("sName").value.trim(),code:$("sCode").value.trim(),classId:$("sClass").value,facultyId:$("sFaculty").value});activityLog.unshift({text:`Added subject ${$("sName").value.trim()}`,time:"Just now",icon:"fa-book"});saveData();renderAll();closeModal();notify("Subject added.")};
+  }
+  window.editClass=function(id){const c=classes.find(x=>x.id===id);if(!c)return;openModal("Edit Class",`<form id="editClassForm"><div class="form-grid"><div class="field"><label>Class Name</label><input class="input" id="ecName" value="${esc(c.name)}" required></div><div class="field"><label>Section</label><input class="input" id="ecSection" value="${esc(c.section)}" required></div></div><div class="modal-actions"><button type="button" class="btn secondary" onclick="closeAdminModal()">Cancel</button><button class="btn">Save</button></div></form>`);$("editClassForm").onsubmit=e=>{e.preventDefault();c.name=$("ecName").value.trim();c.section=$("ecSection").value.trim();saveData();renderAll();closeModal();notify("Class updated.")}};
+  window.deleteClass=function(id){const c=classes.find(x=>x.id===id);if(!c)return;if(!confirm(`Delete ${c.name}?`))return;classes.splice(classes.indexOf(c),1);users.filter(u=>u.role==="student"&&u.classId===id).forEach(u=>delete u.classId);subjects=subjects.filter(s=>s.classId!==id);saveData();renderAll();notify("Class deleted.")};
+  window.editSubject=function(id){const s=subjects.find(x=>x.id===id);if(!s)return;openModal("Edit Subject",`<form id="editSubForm"><div class="form-grid"><div class="field"><label>Subject</label><input class="input" id="esName" value="${esc(s.name)}" required></div><div class="field"><label>Code</label><input class="input" id="esCode" value="${esc(s.code)}" required></div><div class="field"><label>Class</label><select class="select" id="esClass">${classes.map(c=>`<option value="${c.id}" ${s.classId===c.id?"selected":""}>${esc(c.name)} - ${esc(c.section)}</option>`).join("")}</select></div><div class="field"><label>Faculty</label><select class="select" id="esFaculty">${users.filter(u=>u.role==="faculty").map(f=>`<option value="${f.username}" ${s.facultyId===f.username?"selected":""}>${esc(f.name)}</option>`).join("")}</select></div></div><div class="modal-actions"><button type="button" class="btn secondary" onclick="closeAdminModal()">Cancel</button><button class="btn">Save</button></div></form>`);$("editSubForm").onsubmit=e=>{e.preventDefault();s.name=$("esName").value.trim();s.code=$("esCode").value.trim();s.classId=$("esClass").value;s.facultyId=$("esFaculty").value;saveData();renderAll();closeModal();notify("Subject updated.")}};
+  window.deleteSubject=function(id){const s=subjects.find(x=>x.id===id);if(!s)return;if(!confirm(`Delete ${s.name}?`))return;subjects.splice(subjects.indexOf(s),1);attendanceRecords=attendanceRecords.filter(r=>r.subjectId!==id);saveData();renderAll();notify("Subject deleted.")};
+
+  document.querySelectorAll("[data-action]").forEach(b=>b.addEventListener("click",()=>{const a=b.dataset.action;if(a==="add-student")userForm("student");if(a==="add-faculty")userForm("faculty");if(a==="add-class")classForm();if(a==="add-subject")subjectForm()}));
+  document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>goPage(b.dataset.page)));
+  function goPage(page){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+page));document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("sidebar").classList.remove("open");$("overlay").classList.remove("show");window.scrollTo({top:0,behavior:"smooth"})}
+  $("menuBtn").onclick=()=>{$("sidebar").classList.add("open");$("overlay").classList.add("show")};$("overlay").onclick=()=>{$("sidebar").classList.remove("open");$("overlay").classList.remove("show")};
+  $("logoutBtn").onclick=logoutUser;$("settingsLogout").onclick=logoutUser;$("notificationBtn").onclick=()=>notify("No new critical notifications.");
+  ["studentSearch","studentClassFilter","facultySearch","attendanceSearch","attendanceClassFilter","attendanceStatusFilter"].forEach(id=>$(id)?.addEventListener("input",renderAll));
+  document.querySelectorAll("[data-report]").forEach(b=>b.addEventListener("click",()=>downloadReport(b.dataset.report)));
+  function csv(rows){return rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n")}
+  function downloadReport(type){
+    let rows=[];
+    if(type==="students"){rows=[["Name","Username","Class","Section","Attendance"],...users.filter(u=>u.role==="student").map(s=>{const c=classOf(s);return[s.name,s.username,c?.name||"",c?.section||"",studentAttendance(s.username)+"%"]})]}
+    if(type==="faculty"){rows=[["Name","Username","Subjects","Classes"],...users.filter(u=>u.role==="faculty").map(f=>{const ss=subjects.filter(s=>s.facultyId===f.username);return[f.name,f.username,ss.map(s=>s.name).join("; "),[...new Set(ss.map(s=>classes.find(c=>c.id===s.classId)?.name).filter(Boolean))].join("; ")]})]}
+    if(type==="attendance"){rows=[["Date","Student","Class","Subject","Faculty","Status"],...attendanceRecords.map(r=>{const s=users.find(u=>u.username===r.studentId),c=classOf(s),sub=subjects.find(x=>x.id===r.subjectId),f=users.find(u=>u.username===r.facultyId);return[r.date,s?.name||r.studentId,c?.name||"",sub?.name||"",f?.name||"",r.status]})]}
+    const blob=new Blob([csv(rows)],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`attendease-${type}-report.csv`;a.click();URL.revokeObjectURL(a.href);notify("Report downloaded.");
+  }
+  $("resetDataBtn").onclick=()=>{if(confirm("Reset all admin changes and restore the original temporary dataset?")){localStorage.removeItem("attendEaseData");location.reload()}};
+
+  window.addEventListener("storage", event => {
+    if (event.key === "attendEaseData") {
+      try {
+        const data = JSON.parse(event.newValue || "{}");
+        if (Array.isArray(data.users)) {
+          users.length = 0;
+          users.push(...data.users);
+        }
+        if (Array.isArray(data.classes)) classes = data.classes;
+        if (Array.isArray(data.subjects)) subjects = data.subjects;
+        if (Array.isArray(data.attendanceRecords)) attendanceRecords = data.attendanceRecords;
+        if (Array.isArray(data.activityLog)) activityLog = data.activityLog;
+        renderAll();
+        notify("Attendance updated from faculty.");
+      } catch (error) {
+        console.warn("Could not sync faculty changes.", error);
+      }
+    }
+  });
+
+  renderAll();
+})();
+</script>
+</body>
+</html>
