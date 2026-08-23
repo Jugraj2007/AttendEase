@@ -1429,7 +1429,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const links =
         document.querySelectorAll(
-            ".side-link[data-page]"
+            ".side-link[data-page], .footer-link[data-page]"
         );
 
 

@@ -206,7 +206,7 @@
   document.querySelectorAll("[data-action]").forEach(b=>b.addEventListener("click",()=>{const a=b.dataset.action;if(a==="add-student")userForm("student");if(a==="add-faculty")userForm("faculty");if(a==="add-class")classForm();if(a==="add-subject")subjectForm()}));
   document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>goPage(b.dataset.page)));
   function goPage(page){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+page));document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("sidebar").classList.remove("open");$("overlay").classList.remove("show");window.scrollTo({top:0,behavior:"smooth"})}
-  $("menuBtn").onclick=()=>{$("sidebar").classList.add("open");$("overlay").classList.add("show")};$("overlay").onclick=()=>{$("sidebar").classList.remove("open");$("overlay").classList.remove("show")};
+  $("overlay").onclick=()=>{$("sidebar").classList.remove("open");$("overlay").classList.remove("show")};
   $("logoutBtn").onclick=logoutUser;$("settingsLogout").onclick=logoutUser;$("notificationBtn").onclick=()=>notify("No new critical notifications.");
   ["studentSearch","studentClassFilter","facultySearch","attendanceSearch","attendanceClassFilter","attendanceStatusFilter"].forEach(id=>$(id)?.addEventListener("input",renderAll));
   document.querySelectorAll("[data-report]").forEach(b=>b.addEventListener("click",()=>downloadReport(b.dataset.report)));

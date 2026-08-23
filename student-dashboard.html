@@ -130,6 +130,10 @@
             right: 15px;
         }
 
+        .mobile-footer {
+            display: none;
+        }
+
         .logout-btn {
             color: #dc2626;
         }
@@ -681,6 +685,41 @@
         }
 
         @media (max-width: 550px) {
+
+            .mobile-footer {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 90;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                height: 68px;
+                padding: 6px 8px;
+                background: rgba(17, 24, 39, .98);
+                border-top: 1px solid var(--student-border);
+            }
+
+            .mobile-footer .footer-link {
+                border: 0;
+                background: transparent;
+                color: var(--student-muted);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                font-size: 10px;
+                cursor: pointer;
+            }
+
+            .mobile-footer .footer-link i {
+                font-size: 16px;
+            }
+
+            .mobile-footer .footer-link.active {
+                color: var(--student-primary);
+            }
 
             .stats-grid {
                 grid-template-columns: 1fr;
@@ -1578,6 +1617,13 @@
     </main>
 
 </div>
+
+<nav class="mobile-footer" aria-label="Mobile navigation">
+    <button class="footer-link active" data-page="dashboard"><i class="fa-solid fa-house"></i><span>Home</span></button>
+    <button class="footer-link" data-page="attendance"><i class="fa-solid fa-chart-column"></i><span>Attendance</span></button>
+    <button class="footer-link" data-page="history"><i class="fa-solid fa-clock-rotate-left"></i><span>History</span></button>
+    <button class="footer-link" data-page="profile"><i class="fa-solid fa-user"></i><span>Profile</span></button>
+</nav>
 
 
 <!-- ================================================
