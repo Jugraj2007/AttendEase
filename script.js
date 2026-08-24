@@ -716,7 +716,21 @@ function setupLogin() {
 
             saveUser(user);
 
-            redirectUser(user);
+            message.textContent =
+                "Login successful. Preparing your dashboard...";
+
+            message.classList.add(
+                "success"
+            );
+
+            loginButton.disabled =
+                true;
+
+            loginButton.innerHTML =
+                '<i class="fa-solid fa-spinner fa-spin"></i>&nbsp; Loading...';
+
+            window.location.href =
+                "load-role-aware.html";
 
         }
     );
