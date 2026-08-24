@@ -982,6 +982,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ).padStart(2, "0");
 
 
+        const day =
             String(
                 today.getDate()
             ).padStart(2, "0");
