@@ -7,6 +7,7 @@ const projectRoot = fileURLToPath(new URL('..', import.meta.url))
 
 export default defineConfig({
   root: projectRoot,
+  base: process.env.GITHUB_PAGES === 'true' ? '/AttendEase/' : '/',
   publicDir: path.resolve(projectRoot, 'attendease-react/public'),
   plugins: [react()],
 })

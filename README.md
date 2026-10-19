@@ -50,6 +50,15 @@ npm.cmd --prefix attendease-react run preview
 
 Vite is configured at the repository root, so the production bundle is written to `dist/`. The application uses role-scoped paths such as `/admin/dashboard`, `/faculty/mark`, and `/student/attendance`.
 
+## Deploy to GitHub Pages
+
+This repository includes a GitHub Actions workflow that builds and deploys the application to the repository Pages URL (`https://sanehasharam.github.io/AttendEase/`). It builds the React production bundle with the correct `/AttendEase/` asset path and includes a Pages fallback for dashboard routes.
+
+1. Push the workflow and application changes to the `main` branch.
+2. In GitHub, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+3. Open the repository **Actions** tab and wait for **Deploy AttendEase to GitHub Pages** to complete successfully.
+4. Open the published Pages URL from the deployment job or **Settings → Pages**. After later pushes to `main`, wait for the deployment workflow to finish before reloading the site.
+
 ## Demo accounts
 
 Use institution code `ABC001` with one of these accounts:
