@@ -52,10 +52,10 @@ Vite is configured at the repository root, so the production bundle is written t
 
 ## Deploy to GitHub Pages
 
-This repository includes a GitHub Actions workflow that builds and deploys the application to the repository Pages URL (`https://sanehasharam.github.io/AttendEase/`). It builds the React production bundle with the correct `/AttendEase/` asset path and includes a Pages fallback for dashboard routes.
+This repository includes a GitHub Actions workflow that builds and deploys the application to the repository Pages URL (`https://sanehasharam.github.io/AttendEase/`). It builds the React production bundle with the correct `/AttendEase/` asset path and publishes static entry points for the login and dashboard routes, so direct visits and refreshes work on GitHub Pages. A Pages fallback is also included for unknown routes.
 
 1. Push the workflow and application changes to the `main` branch.
-2. In GitHub, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+2. In GitHub, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**. Do not use **Deploy from a branch**: that publishes the unbuilt repository source and can replace the working app with a broken page even when this workflow succeeds.
 3. Open the repository **Actions** tab and wait for **Deploy AttendEase to GitHub Pages** to complete successfully.
 4. Open the published Pages URL from the deployment job or **Settings → Pages**. After later pushes to `main`, wait for the deployment workflow to finish before reloading the site.
 

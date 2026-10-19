@@ -36,8 +36,29 @@ jobs:
         env:
           GITHUB_PAGES: 'true'
 
-      - name: Preserve React routes on GitHub Pages
-        run: cp dist/index.html dist/404.html
+      - name: Verify Pages bundle
+        run: |
+          test -s dist/index.html
+          test -s dist/favicon.svg
+          grep -Eq 'src="/AttendEase/assets/[^"]+\.js"' dist/index.html
+          grep -Eq 'href="/AttendEase/assets/[^"]+\.css"' dist/index.html
+
+      - name: Generate static entry points for React routes
+        run: |
+          for route in \
+            login \
+            admin/dashboard admin/users admin/academics admin/attendance admin/corrections admin/settings \
+            faculty/dashboard faculty/mark faculty/history faculty/corrections faculty/classes faculty/profile \
+            student/dashboard student/attendance student/corrections student/subjects student/profile
+          do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
+          cp dist/index.html dist/404.html
+          test -s dist/login/index.html
+          test -s dist/admin/dashboard/index.html
+          test -s dist/faculty/mark/index.html
+          test -s dist/student/attendance/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
