@@ -716,34 +716,21 @@ function setupLogin() {
 
             saveUser(user);
 
-
             message.textContent =
                 "Login successful. Preparing your dashboard...";
-
 
             message.classList.add(
                 "success"
             );
 
-
             loginButton.disabled =
                 true;
-
 
             loginButton.innerHTML =
                 '<i class="fa-solid fa-spinner fa-spin"></i>&nbsp; Loading...';
 
-
-            // Wait 3 seconds
-            setTimeout(
-                function() {
-
-                    window.location.href =
-                        "load-role-aware.html";
-
-                },
-                3000
-            );
+            window.location.href =
+                "load-role-aware.html";
 
         }
     );
@@ -1261,7 +1248,9 @@ function showAdminPage(pageName) {
 
     const selectedPage =
         document.getElementById(
-            "page-" + pageName
+            pageName === "dashboard"
+                ? "admin-dashboard"
+                : "page-" + pageName
         );
 
 

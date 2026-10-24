@@ -1000,7 +1000,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const navLinks =
         document.querySelectorAll(
-            ".side-link[data-page]"
+            ".side-link[data-page], .footer-link[data-page]"
         );
 
 
@@ -1111,6 +1111,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+        if (sidebar) {
+
+            sidebar.classList.remove(
+                "open"
+            );
+
+            setTimeout(
+                function () {
+                    sidebar.classList.remove(
+                        "open"
+                    );
+                },
+                0
+            );
+
+        }
+
     }
 
 
@@ -1127,6 +1149,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
             );
+
+        }
+    );
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (!event.target.closest(".side-link[data-page], .footer-link[data-page]")) {
+                return;
+            }
+
+            const sidebar = document.getElementById("sidebar");
+
+            if (sidebar) {
+                sidebar.classList.remove("open");
+            }
 
         }
     );
